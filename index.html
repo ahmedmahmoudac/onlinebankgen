@@ -1,14 +1,80 @@
+<html lang="en"><head><style type="text/css" data-tag-name="trix-editor">trix-editor {
+  display: block;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+trix-editor:empty:not(:focus)::before {
+  content: attr(placeholder);
+  color: graytext;
+  cursor: text;
+  pointer-events: none;
+}
+
+trix-editor a[contenteditable=false] {
+  cursor: text;
+}
+
+trix-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+  resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+  position: absolute;
+  left: -9999px;
+  max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+  content: attr(data-trix-placeholder);
+  color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+  display: inline-block !important;
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+  vertical-align: top !important;
+  margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+  vertical-align: bottom !important;
+  margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="DKAysD4fZFsJV6yb4kn06HJLosDXAt2XbT3O6th0">
 <title>UID Checker - FBVault</title>
 
 <link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
+<link href="https://fonts.bunny.net/css?family=Inter:400,500,600,700,800&amp;display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="https://fbvault.com/favicon.ico" type="image/x-icon">
 <style>
     [x-cloak] {
@@ -16,27 +82,16 @@
     }
 </style>
 
-<link rel="preload" as="style" href="/onlinebankgen/build/assets/app-de796815.css" /><link rel="modulepreload" href="/onlinebankgen/build/assets/app-581aac95.js" /><link rel="stylesheet" href="/onlinebankgen/build/assets/app-de796815.css" /><script type="f1626fb3d77cb3b8ce7c59a6-module" src="/onlinebankgen/build/assets/app-581aac95.js"></script>
+<link rel="preload" as="style" href="/onlinebankgen/build/assets/app-de796815.css"><link rel="modulepreload" href="/onlinebankgen/build/assets/app-581aac95.js"><link rel="stylesheet" href="/onlinebankgen/build/assets/app-de796815.css"><script type="module" src="/onlinebankgen/build/assets/app-581aac95.js"></script>
 <style>[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {animation-duration: 50000s;animation-name: livewireautofill;}@keyframes livewireautofill { from {} }</style>
-<script src="/onlinebankgen/livewire/livewire.js?id=90730a3b0e7144480175" data-turbo-eval="false" data-turbolinks-eval="false" type="f1626fb3d77cb3b8ce7c59a6-text/javascript"></script><script data-turbo-eval="false" data-turbolinks-eval="false" type="f1626fb3d77cb3b8ce7c59a6-text/javascript">window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = 'DKAysD4fZFsJV6yb4kn06HJLosDXAt2XbT3O6th0';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};let started = false;window.addEventListener('alpine:initializing', function () {if (! started) {window.livewire.start();started = true;}});document.addEventListener("DOMContentLoaded", function () {if (! started) {window.livewire.start();started = true;}});</script>
+<script src="/onlinebankgen/livewire/livewire.js?id=90730a3b0e7144480175" data-turbo-eval="false" data-turbolinks-eval="false" type="text/javascript"></script><script data-turbo-eval="false" data-turbolinks-eval="false" type="text/javascript">window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = 'DKAysD4fZFsJV6yb4kn06HJLosDXAt2XbT3O6th0';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};let started = false;window.addEventListener('alpine:initializing', function () {if (! started) {window.livewire.start();started = true;}});document.addEventListener("DOMContentLoaded", function () {if (! started) {window.livewire.start();started = true;}});</script>
 </head>
 <body class="font-sans antialiased">
 <div class="flex h-screen overflow-hidden bg-gray-100" x-data="{ sidebarToggle: false }">
 
-<aside :class="{ '-translate-x-full': !sidebarToggle }" class="absolute top-0 left-0 z-30 flex flex-col h-screen overflow-y-hidden text-gray-600 duration-200 ease-in-out -translate-x-full bg-white shadow-sm w-72 lg:translate-x-0 lg:static">
+<aside :class="{ '-translate-x-full': !sidebarToggle }" class="absolute top-0 left-0 z-30 flex flex-col h-screen overflow-y-hidden text-gray-600 duration-200 ease-in-out bg-white shadow-sm w-72 lg:translate-x-0 lg:static -translate-x-full">
 
-<div class="flex items-center justify-between py-4 px-7">
-<a href="https://fbvault.com">
-<div class="inline-flex items-center text-2xl md:text-3xl">
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewbox="0 0 751.11 186.24" height="36"><defs><style>.cls-1{fill:#0d9488}.cls-2{fill:#fff}</style></defs><path d="M724.55 93.12A86.53 86.53 0 0 1 638 179.66H157.11a97.06 97.06 0 0 0 0-173.07H638a86.53 86.53 0 0 1 86.55 86.53Z" class="cls-1"></path><path d="M295 43.15h-46a19.75 19.75 0 0 0-19.7 19.75v77.71a.87.87 0 0 0 .87.87H248a.87.87 0 0 0 .87-.87v-40.05a.87.87 0 0 1 .87-.87h38.81a.87.87 0 0 0 .87-.87V83.93a.87.87 0 0 0-.87-.87h-38.77a.87.87 0 0 1-.87-.87V59.78H295a.86.86 0 0 0 .87-.87V44a.86.86 0 0 0-.87-.85ZM347.43 68.64q-11.79 0-20.4 9.92V43.15h-18.62v98.33h17.29V131a28.69 28.69 0 0 0 10.1 9 25.58 25.58 0 0 0 11.89 3.05q12.27 0 20.84-9.86t8.58-28.1q0-17.64-8.41-27.07a27.29 27.29 0 0 0-21.27-9.38Zm6.26 54.23q-4.33 5.32-10.5 5.33-8 0-12.85-7.51-3.45-5.3-3.45-16.37 0-10.72 4.44-16a14 14 0 0 1 11.13-5.26 13.78 13.78 0 0 1 11.2 5.4q4.36 5.4 4.37 17.61-.03 11.46-4.34 16.8ZM420.9 106.6c-.7 2-1.37 4-2 6-.27 1-.91 3-1.92 6.1l-3.85-12.14-13.23-36.31h-19.54l28.35 71.23h16.76l28-71.23h-19.18ZM519 118.07l.2-22q0-12.27-2.48-16.87t-8.58-7.58q-6.11-3-18.55-3-13.73 0-20.67 5t-9.81 15.29L476 92c1.14-3.31 2.65-5.62 4.5-6.94s4.44-2 7.75-2q7.37 0 10 2.31c1.76 1.55 2.65 4.13 2.65 7.75V95q-5 2.15-18.09 4.63-9.64 1.88-14.81 4.37a18.73 18.73 0 0 0-8 7.24 20.46 20.46 0 0 0-2.79 10.76 20 20 0 0 0 6.26 15.09q6.27 6 17.13 6a28.8 28.8 0 0 0 11.59-2.35 33.46 33.46 0 0 0 10.2-7c.14.36.36 1.1.67 2.21q1.05 3.69 1.79 5.57h18.41a40.57 40.57 0 0 1-3.34-9.56 76.8 76.8 0 0 1-.92-13.89Zm-18.08-7c0 4.52-.25 7.58-.73 9.19a11.84 11.84 0 0 1-4.44 6.24 16 16 0 0 1-9.61 3.35 10.13 10.13 0 0 1-7.42-2.88 9.34 9.34 0 0 1-2.91-6.85 7.89 7.89 0 0 1 3.64-6.64q2.38-1.6 10.14-3.28a114.2 114.2 0 0 0 11.33-2.89ZM579.84 100.3q0 15.28-1.39 19.21a13.47 13.47 0 0 1-5.17 6.58 14.53 14.53 0 0 1-8.54 2.65 11.4 11.4 0 0 1-6.89-2 10.09 10.09 0 0 1-3.75-5.37q-1-3.37-1-18.41V70.25h-18.64v45.07q0 10.07 2.52 15.76a18.47 18.47 0 0 0 8.15 8.86 25.58 25.58 0 0 0 12.72 3.15 27.9 27.9 0 0 0 13.21-3.29 27.16 27.16 0 0 0 10.11-9v10.66h17.29V70.25h-18.62ZM615.02 43.15h18.61v98.33h-18.61zM682.2 125.65a23.75 23.75 0 0 1-7.48 1.81 5.18 5.18 0 0 1-3.15-.94 4.17 4.17 0 0 1-1.66-2.38q-.36-1.44-.36-10.16V85.27h12.72v-15h-12.72V45.09l-18.68 11v14.16h-8.55v15h8.55v31.06a94 94 0 0 0 .59 13.28 17.65 17.65 0 0 0 2.62 7.34 13.25 13.25 0 0 0 5.93 4.43 23.07 23.07 0 0 0 9.08 1.71 36.57 36.57 0 0 0 14.7-2.82Z" class="cls-2"></path><path d="M113.09 6.58a86.54 86.54 0 1 0 86.54 86.54 86.65 86.65 0 0 0-86.54-86.54Zm0 163.72a77.18 77.18 0 1 1 77.18-77.18 77.25 77.25 0 0 1-77.18 77.18Z" class="cls-1"></path><path d="m169 62.52-.25-.43a3.35 3.35 0 0 0-4.59-1.23L142 73.65a34.78 34.78 0 0 0-24.1-15.05V33a3.61 3.61 0 1 0-7.21 0v25.36A34.7 34.7 0 0 0 85.61 71.7L63.42 58.9a3.57 3.57 0 0 0-4.88 1.31v.06a3.57 3.57 0 0 0 1.31 4.88l21.92 12.68a34.78 34.78 0 0 0-1 28.39l-22.34 12.91a3.36 3.36 0 0 0-1.23 4.59l.25.43a3.35 3.35 0 0 0 4.55 1.23l22.2-12.79a34.78 34.78 0 0 0 24.08 15v25.57a3.61 3.61 0 1 0 7.21 0v-25.28a34.66 34.66 0 0 0 25.07-13.34l22.2 12.8a3.57 3.57 0 0 0 4.88-1.31v-.06a3.57 3.57 0 0 0-1.31-4.88l-22-12.68a34.78 34.78 0 0 0 1-28.39l22.38-12.91a3.36 3.36 0 0 0 1.29-4.59Zm-30.86 42.28a26.61 26.61 0 0 1-3.9 6.08 27.41 27.41 0 0 1-18.75 9.76 19 19 0 0 1-2.4.12 28.3 28.3 0 0 1-4.81-.41 27.93 27.93 0 0 1-21.17-17.78 27.22 27.22 0 0 1-1.66-9.45A27.51 27.51 0 0 1 88 81.44a26.61 26.61 0 0 1 3.9-6.08 27.41 27.41 0 0 1 18.75-9.76 19 19 0 0 1 2.4-.12 28.39 28.39 0 0 1 4.81.41 27.93 27.93 0 0 1 21.17 17.78 27.22 27.22 0 0 1 1.66 9.45 27.51 27.51 0 0 1-2.55 11.68Z" class="cls-1"></path><path d="M120.35 88.89a6.55 6.55 0 1 0-13.1 0A6.44 6.44 0 0 0 109.8 94l-4.09 11.73h16.18L117.8 94a6.44 6.44 0 0 0 2.55-5.11Zm-6.54 2.4a2.57 2.57 0 1 1 2.57-2.57 2.58 2.58 0 0 1-2.57 2.57Z" class="cls-1"></path><circle cx="162.08" cy="96.61" r="10.46" class="cls-1"></circle><path d="M167.86 93a4.38 4.38 0 0 1-1.16.33c.19 0 .46-.36.57-.5a1.91 1.91 0 0 0 .38-.7s0 0 0-.06a.07.07 0 0 0-.06 0 6.14 6.14 0 0 1-1.37.52.09.09 0 0 1-.09 0l-.12-.13a2.48 2.48 0 0 0-.66-.4 2.28 2.28 0 0 0-2 .11 2.38 2.38 0 0 0-.78.63 2.28 2.28 0 0 0-.49 1.91v.06a7.32 7.32 0 0 1-4.7-2.39c0-.07-.08-.07-.13 0a2.4 2.4 0 0 0 .41 2.82l.29.25a2.34 2.34 0 0 1-.91-.25s-.08 0-.09 0a2.45 2.45 0 0 0 0 .27 2.4 2.4 0 0 0 1.48 1.92 1.76 1.76 0 0 0 .3.1 2.72 2.72 0 0 1-.88 0c-.07 0-.09 0-.07.09a2.51 2.51 0 0 0 1.87 1.56h.25a3 3 0 0 1-1.28.68 4.72 4.72 0 0 1-1.94.25h-.15c-.03 0 0 0 0 .07l.4.23a6.3 6.3 0 0 0 1.3.52 6.9 6.9 0 0 0 6.7-1.56 7.06 7.06 0 0 0 1.85-5.13c0-.08.09-.12.14-.16a4.27 4.27 0 0 0 .91-.94.3.3 0 0 0 .06-.19s.01.09-.03.09Z" class="cls-2"></path><circle cx="88.63" cy="50.22" r="10.1" class="cls-1"></circle><path d="M91.76 46.4a.7.7 0 1 0 .7.7.7.7 0 0 0-.7-.7ZM88.68 47.29a2.92 2.92 0 1 0 2.91 2.92 2.92 2.92 0 0 0-2.91-2.92Zm0 4.79a1.87 1.87 0 1 1 1.86-1.87 1.87 1.87 0 0 1-1.86 1.87Z" class="cls-2"></path><path d="M91 56.13h-4.74a3.56 3.56 0 0 1-3.55-3.56v-4.72a3.56 3.56 0 0 1 3.55-3.56H91a3.57 3.57 0 0 1 3.56 3.56v4.72A3.57 3.57 0 0 1 91 56.13ZM86.26 45.4a2.45 2.45 0 0 0-2.44 2.45v4.72A2.44 2.44 0 0 0 86.26 55H91a2.44 2.44 0 0 0 2.44-2.44v-4.71A2.45 2.45 0 0 0 91 45.4Z" class="cls-2"></path><path d="M150.25 50.3a9.52 9.52 0 1 0-11 9.4v-6.65h-2.42V50.3h2.42v-2.09a3.36 3.36 0 0 1 3.59-3.71 14.34 14.34 0 0 1 2.13.19V47h-1.2a1.38 1.38 0 0 0-1.55 1.49v1.81h2.64l-.42 2.75h-2.22v6.65a9.51 9.51 0 0 0 8.03-9.4Z" class="cls-1"></path><path d="m144.44 53.05.42-2.75h-2.64v-1.78a1.38 1.38 0 0 1 1.55-1.52H145v-2.31a14.34 14.34 0 0 0-2.13-.19 3.36 3.36 0 0 0-3.59 3.71v2.09h-2.42v2.75h2.42v6.65a9.25 9.25 0 0 0 3 0v-6.65Z" class="cls-2"></path><circle cx="62.45" cy="94.84" r="10.12" class="cls-1"></circle><path d="M67.71 93.67h-.31a3.38 3.38 0 0 1-2.83-1.53v5.21a3.85 3.85 0 1 1-3.85-3.85H61v1.9a1.6 1.6 0 0 0-.23 0 2 2 0 1 0 0 3.93 2 2 0 0 0 2-1.94v-8.84h1.81a3.39 3.39 0 0 0 3.12 3v2.11" class="cls-2"></path><circle cx="86.2" cy="134.25" r="10.07" class="cls-1"></circle><path d="M91.59 132.81a2.42 2.42 0 0 0-2.42-2.42H83a2.42 2.42 0 0 0-2.42 2.42v2.88A2.41 2.41 0 0 0 83 138.1h6.18a2.42 2.42 0 0 0 2.42-2.41ZM88 134.46l-2.77 1.38c-.11 0-.48 0-.48-.15v-2.81c0-.13.37-.21.48-.15l2.66 1.45c.11.06.17.22.11.28Z" class="cls-2"></path><path d="M137.68 124.18a9.75 9.75 0 1 0 9.76 9.76 9.77 9.77 0 0 0-9.76-9.76Z" class="cls-1"></path><path d="M144 137.83a6.38 6.38 0 0 1-4.3 3.22 7.3 7.3 0 0 1-4.81-.46 7 7 0 0 1-4.27-5.86 7.21 7.21 0 0 1 5-7.77 7 7 0 0 1 7 1.45l.07.09-2 1.9a6.14 6.14 0 0 0-.87-.6 4.17 4.17 0 0 0-4.42.19 4.61 4.61 0 0 0 1.18 8.34 4.26 4.26 0 0 0 4-.75 3.77 3.77 0 0 0 1.28-2s0-.12 0-.19h-4.13v-2.5h6.87a4 4 0 0 1 .1.63 7.75 7.75 0 0 1-.7 4.31Z" class="cls-1"></path><path d="M144 137.83a6.38 6.38 0 0 1-4.3 3.22 7.3 7.3 0 0 1-4.81-.46 7 7 0 0 1-4.27-5.86 7.21 7.21 0 0 1 5-7.77 7 7 0 0 1 7 1.45l.07.09-2 1.9a6.14 6.14 0 0 0-.87-.6 4.17 4.17 0 0 0-4.42.19 4.61 4.61 0 0 0 1.18 8.34 4.26 4.26 0 0 0 4-.75 3.77 3.77 0 0 0 1.28-2s0-.12 0-.19h-4.13v-2.5h6.87a4 4 0 0 1 .1.63 7.75 7.75 0 0 1-.7 4.31Z" class="cls-2"></path></svg>
-</div>
-</a>
-<button class="p-2 text-gray-400 border border-current rounded-md lg:hidden" aria-label="Close Sidebar" x-on:click="sidebarToggle = false">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M18 6l-12 12" />
-<path d="M6 6l12 12" />
-</svg> </button>
-</div>
+<img alt="Logo" src="https://raw.githubusercontent.com/ahmedmahmoudac/medoztools/main/MedozPro.png">
 
 <nav class="flex-1 px-4 overflow-y-auto scrollbar-y">
 
@@ -46,12 +101,12 @@
 </li>
 
 <li>
-<a href="https://fbvault.com" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
+<a href="https://medoz.trendatelyoum.com" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
 <span class="flex items-center">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-<path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+<path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
 </svg> Home
 </span>
 </a>
@@ -64,23 +119,23 @@ User
 </li>
 
 <li>
-<a href="https://fbvault.com/login" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
+<a href="https://medoztools.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
 <span class="flex items-center">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-<path d="M20 12h-13l3 -3m0 6l-3 -3" />
-</svg> Login
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+<path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
+</svg> Medoz Tools
 </span>
 </a>
 </li>
 <li>
-<a href="https://fbvault.com/register" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
+<a href="https://medoz.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
 <span class="flex items-center">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-<path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-<path d="M16 11h6m-3 -3v6" />
-</svg> Register
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+<path d="M16 11h6m-3 -3v6"></path>
+</svg> Medoz Main Home
 </span>
 </a>
 </li>
@@ -92,24 +147,24 @@ Tools
 </li>
 
 <li>
-<a href="https://fbvault.com/nid-checker" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
+<a href="https://medoztools.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
 <span class="flex items-center">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-<path d="M9 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-<path d="M15 8l2 0" />
-<path d="M15 12l2 0" />
-<path d="M7 16l10 0" />
-</svg> NID Checker
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"></path>
+<path d="M9 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+<path d="M15 8l2 0"></path>
+<path d="M15 12l2 0"></path>
+<path d="M7 16l10 0"></path>
+</svg> Medoz Tools
 </span>
 </a>
 </li>
 <li>
 <a href="https://fbvault.com/uid-checker" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between bg-teal-600 text-white">
 <span class="flex items-center">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-</svg> UID Checker
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+</svg> Fb UID Checker
 </span>
 </a>
 </li>
@@ -117,7 +172,7 @@ Tools
 </nav>
 </aside>
 
-<div x-cloak x-show="sidebarToggle" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-on:click="sidebarToggle = false" class="fixed inset-0 z-10 bg-gray-900 bg-opacity-30 backdrop-blur-[2px]"></div>
+<div x-show="sidebarToggle" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-on:click="sidebarToggle = false" class="fixed inset-0 z-10 bg-gray-900 bg-opacity-30 backdrop-blur-[2px]" style="display: none;"></div>
 
 <div class="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
 
@@ -126,17 +181,13 @@ Tools
 <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
 
 <button x-on:click="sidebarToggle = true" class="lg:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M4 6l16 0" />
-<path d="M4 12l16 0" />
-<path d="M4 18l16 0" />
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 6l16 0"></path>
+<path d="M4 12l16 0"></path>
+<path d="M4 18l16 0"></path>
 </svg> </button>
 
-<a class="flex-shrink-0 block lg:hidden" href="https://fbvault.com">
-<div class="inline-flex items-center text-2xl md:text-3xl">
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewbox="0 0 751.11 186.24" height="40"><defs><style>.cls-1{fill:#0d9488}.cls-2{fill:#fff}</style></defs><path d="M724.55 93.12A86.53 86.53 0 0 1 638 179.66H157.11a97.06 97.06 0 0 0 0-173.07H638a86.53 86.53 0 0 1 86.55 86.53Z" class="cls-1"></path><path d="M295 43.15h-46a19.75 19.75 0 0 0-19.7 19.75v77.71a.87.87 0 0 0 .87.87H248a.87.87 0 0 0 .87-.87v-40.05a.87.87 0 0 1 .87-.87h38.81a.87.87 0 0 0 .87-.87V83.93a.87.87 0 0 0-.87-.87h-38.77a.87.87 0 0 1-.87-.87V59.78H295a.86.86 0 0 0 .87-.87V44a.86.86 0 0 0-.87-.85ZM347.43 68.64q-11.79 0-20.4 9.92V43.15h-18.62v98.33h17.29V131a28.69 28.69 0 0 0 10.1 9 25.58 25.58 0 0 0 11.89 3.05q12.27 0 20.84-9.86t8.58-28.1q0-17.64-8.41-27.07a27.29 27.29 0 0 0-21.27-9.38Zm6.26 54.23q-4.33 5.32-10.5 5.33-8 0-12.85-7.51-3.45-5.3-3.45-16.37 0-10.72 4.44-16a14 14 0 0 1 11.13-5.26 13.78 13.78 0 0 1 11.2 5.4q4.36 5.4 4.37 17.61-.03 11.46-4.34 16.8ZM420.9 106.6c-.7 2-1.37 4-2 6-.27 1-.91 3-1.92 6.1l-3.85-12.14-13.23-36.31h-19.54l28.35 71.23h16.76l28-71.23h-19.18ZM519 118.07l.2-22q0-12.27-2.48-16.87t-8.58-7.58q-6.11-3-18.55-3-13.73 0-20.67 5t-9.81 15.29L476 92c1.14-3.31 2.65-5.62 4.5-6.94s4.44-2 7.75-2q7.37 0 10 2.31c1.76 1.55 2.65 4.13 2.65 7.75V95q-5 2.15-18.09 4.63-9.64 1.88-14.81 4.37a18.73 18.73 0 0 0-8 7.24 20.46 20.46 0 0 0-2.79 10.76 20 20 0 0 0 6.26 15.09q6.27 6 17.13 6a28.8 28.8 0 0 0 11.59-2.35 33.46 33.46 0 0 0 10.2-7c.14.36.36 1.1.67 2.21q1.05 3.69 1.79 5.57h18.41a40.57 40.57 0 0 1-3.34-9.56 76.8 76.8 0 0 1-.92-13.89Zm-18.08-7c0 4.52-.25 7.58-.73 9.19a11.84 11.84 0 0 1-4.44 6.24 16 16 0 0 1-9.61 3.35 10.13 10.13 0 0 1-7.42-2.88 9.34 9.34 0 0 1-2.91-6.85 7.89 7.89 0 0 1 3.64-6.64q2.38-1.6 10.14-3.28a114.2 114.2 0 0 0 11.33-2.89ZM579.84 100.3q0 15.28-1.39 19.21a13.47 13.47 0 0 1-5.17 6.58 14.53 14.53 0 0 1-8.54 2.65 11.4 11.4 0 0 1-6.89-2 10.09 10.09 0 0 1-3.75-5.37q-1-3.37-1-18.41V70.25h-18.64v45.07q0 10.07 2.52 15.76a18.47 18.47 0 0 0 8.15 8.86 25.58 25.58 0 0 0 12.72 3.15 27.9 27.9 0 0 0 13.21-3.29 27.16 27.16 0 0 0 10.11-9v10.66h17.29V70.25h-18.62ZM615.02 43.15h18.61v98.33h-18.61zM682.2 125.65a23.75 23.75 0 0 1-7.48 1.81 5.18 5.18 0 0 1-3.15-.94 4.17 4.17 0 0 1-1.66-2.38q-.36-1.44-.36-10.16V85.27h12.72v-15h-12.72V45.09l-18.68 11v14.16h-8.55v15h8.55v31.06a94 94 0 0 0 .59 13.28 17.65 17.65 0 0 0 2.62 7.34 13.25 13.25 0 0 0 5.93 4.43 23.07 23.07 0 0 0 9.08 1.71 36.57 36.57 0 0 0 14.7-2.82Z" class="cls-2"></path><path d="M113.09 6.58a86.54 86.54 0 1 0 86.54 86.54 86.65 86.65 0 0 0-86.54-86.54Zm0 163.72a77.18 77.18 0 1 1 77.18-77.18 77.25 77.25 0 0 1-77.18 77.18Z" class="cls-1"></path><path d="m169 62.52-.25-.43a3.35 3.35 0 0 0-4.59-1.23L142 73.65a34.78 34.78 0 0 0-24.1-15.05V33a3.61 3.61 0 1 0-7.21 0v25.36A34.7 34.7 0 0 0 85.61 71.7L63.42 58.9a3.57 3.57 0 0 0-4.88 1.31v.06a3.57 3.57 0 0 0 1.31 4.88l21.92 12.68a34.78 34.78 0 0 0-1 28.39l-22.34 12.91a3.36 3.36 0 0 0-1.23 4.59l.25.43a3.35 3.35 0 0 0 4.55 1.23l22.2-12.79a34.78 34.78 0 0 0 24.08 15v25.57a3.61 3.61 0 1 0 7.21 0v-25.28a34.66 34.66 0 0 0 25.07-13.34l22.2 12.8a3.57 3.57 0 0 0 4.88-1.31v-.06a3.57 3.57 0 0 0-1.31-4.88l-22-12.68a34.78 34.78 0 0 0 1-28.39l22.38-12.91a3.36 3.36 0 0 0 1.29-4.59Zm-30.86 42.28a26.61 26.61 0 0 1-3.9 6.08 27.41 27.41 0 0 1-18.75 9.76 19 19 0 0 1-2.4.12 28.3 28.3 0 0 1-4.81-.41 27.93 27.93 0 0 1-21.17-17.78 27.22 27.22 0 0 1-1.66-9.45A27.51 27.51 0 0 1 88 81.44a26.61 26.61 0 0 1 3.9-6.08 27.41 27.41 0 0 1 18.75-9.76 19 19 0 0 1 2.4-.12 28.39 28.39 0 0 1 4.81.41 27.93 27.93 0 0 1 21.17 17.78 27.22 27.22 0 0 1 1.66 9.45 27.51 27.51 0 0 1-2.55 11.68Z" class="cls-1"></path><path d="M120.35 88.89a6.55 6.55 0 1 0-13.1 0A6.44 6.44 0 0 0 109.8 94l-4.09 11.73h16.18L117.8 94a6.44 6.44 0 0 0 2.55-5.11Zm-6.54 2.4a2.57 2.57 0 1 1 2.57-2.57 2.58 2.58 0 0 1-2.57 2.57Z" class="cls-1"></path><circle cx="162.08" cy="96.61" r="10.46" class="cls-1"></circle><path d="M167.86 93a4.38 4.38 0 0 1-1.16.33c.19 0 .46-.36.57-.5a1.91 1.91 0 0 0 .38-.7s0 0 0-.06a.07.07 0 0 0-.06 0 6.14 6.14 0 0 1-1.37.52.09.09 0 0 1-.09 0l-.12-.13a2.48 2.48 0 0 0-.66-.4 2.28 2.28 0 0 0-2 .11 2.38 2.38 0 0 0-.78.63 2.28 2.28 0 0 0-.49 1.91v.06a7.32 7.32 0 0 1-4.7-2.39c0-.07-.08-.07-.13 0a2.4 2.4 0 0 0 .41 2.82l.29.25a2.34 2.34 0 0 1-.91-.25s-.08 0-.09 0a2.45 2.45 0 0 0 0 .27 2.4 2.4 0 0 0 1.48 1.92 1.76 1.76 0 0 0 .3.1 2.72 2.72 0 0 1-.88 0c-.07 0-.09 0-.07.09a2.51 2.51 0 0 0 1.87 1.56h.25a3 3 0 0 1-1.28.68 4.72 4.72 0 0 1-1.94.25h-.15c-.03 0 0 0 0 .07l.4.23a6.3 6.3 0 0 0 1.3.52 6.9 6.9 0 0 0 6.7-1.56 7.06 7.06 0 0 0 1.85-5.13c0-.08.09-.12.14-.16a4.27 4.27 0 0 0 .91-.94.3.3 0 0 0 .06-.19s.01.09-.03.09Z" class="cls-2"></path><circle cx="88.63" cy="50.22" r="10.1" class="cls-1"></circle><path d="M91.76 46.4a.7.7 0 1 0 .7.7.7.7 0 0 0-.7-.7ZM88.68 47.29a2.92 2.92 0 1 0 2.91 2.92 2.92 2.92 0 0 0-2.91-2.92Zm0 4.79a1.87 1.87 0 1 1 1.86-1.87 1.87 1.87 0 0 1-1.86 1.87Z" class="cls-2"></path><path d="M91 56.13h-4.74a3.56 3.56 0 0 1-3.55-3.56v-4.72a3.56 3.56 0 0 1 3.55-3.56H91a3.57 3.57 0 0 1 3.56 3.56v4.72A3.57 3.57 0 0 1 91 56.13ZM86.26 45.4a2.45 2.45 0 0 0-2.44 2.45v4.72A2.44 2.44 0 0 0 86.26 55H91a2.44 2.44 0 0 0 2.44-2.44v-4.71A2.45 2.45 0 0 0 91 45.4Z" class="cls-2"></path><path d="M150.25 50.3a9.52 9.52 0 1 0-11 9.4v-6.65h-2.42V50.3h2.42v-2.09a3.36 3.36 0 0 1 3.59-3.71 14.34 14.34 0 0 1 2.13.19V47h-1.2a1.38 1.38 0 0 0-1.55 1.49v1.81h2.64l-.42 2.75h-2.22v6.65a9.51 9.51 0 0 0 8.03-9.4Z" class="cls-1"></path><path d="m144.44 53.05.42-2.75h-2.64v-1.78a1.38 1.38 0 0 1 1.55-1.52H145v-2.31a14.34 14.34 0 0 0-2.13-.19 3.36 3.36 0 0 0-3.59 3.71v2.09h-2.42v2.75h2.42v6.65a9.25 9.25 0 0 0 3 0v-6.65Z" class="cls-2"></path><circle cx="62.45" cy="94.84" r="10.12" class="cls-1"></circle><path d="M67.71 93.67h-.31a3.38 3.38 0 0 1-2.83-1.53v5.21a3.85 3.85 0 1 1-3.85-3.85H61v1.9a1.6 1.6 0 0 0-.23 0 2 2 0 1 0 0 3.93 2 2 0 0 0 2-1.94v-8.84h1.81a3.39 3.39 0 0 0 3.12 3v2.11" class="cls-2"></path><circle cx="86.2" cy="134.25" r="10.07" class="cls-1"></circle><path d="M91.59 132.81a2.42 2.42 0 0 0-2.42-2.42H83a2.42 2.42 0 0 0-2.42 2.42v2.88A2.41 2.41 0 0 0 83 138.1h6.18a2.42 2.42 0 0 0 2.42-2.41ZM88 134.46l-2.77 1.38c-.11 0-.48 0-.48-.15v-2.81c0-.13.37-.21.48-.15l2.66 1.45c.11.06.17.22.11.28Z" class="cls-2"></path><path d="M137.68 124.18a9.75 9.75 0 1 0 9.76 9.76 9.77 9.77 0 0 0-9.76-9.76Z" class="cls-1"></path><path d="M144 137.83a6.38 6.38 0 0 1-4.3 3.22 7.3 7.3 0 0 1-4.81-.46 7 7 0 0 1-4.27-5.86 7.21 7.21 0 0 1 5-7.77 7 7 0 0 1 7 1.45l.07.09-2 1.9a6.14 6.14 0 0 0-.87-.6 4.17 4.17 0 0 0-4.42.19 4.61 4.61 0 0 0 1.18 8.34 4.26 4.26 0 0 0 4-.75 3.77 3.77 0 0 0 1.28-2s0-.12 0-.19h-4.13v-2.5h6.87a4 4 0 0 1 .1.63 7.75 7.75 0 0 1-.7 4.31Z" class="cls-1"></path><path d="M144 137.83a6.38 6.38 0 0 1-4.3 3.22 7.3 7.3 0 0 1-4.81-.46 7 7 0 0 1-4.27-5.86 7.21 7.21 0 0 1 5-7.77 7 7 0 0 1 7 1.45l.07.09-2 1.9a6.14 6.14 0 0 0-.87-.6 4.17 4.17 0 0 0-4.42.19 4.61 4.61 0 0 0 1.18 8.34 4.26 4.26 0 0 0 4-.75 3.77 3.77 0 0 0 1.28-2s0-.12 0-.19h-4.13v-2.5h6.87a4 4 0 0 1 .1.63 7.75 7.75 0 0 1-.7 4.31Z" class="cls-2"></path></svg>
-</div>
-</a>
+<img alt="Logo" src="https://raw.githubusercontent.com/ahmedmahmoudac/medoztools/main/MedozPro.png">
 </div>
 
 <div class="ml-auto lg:ml-0">
@@ -150,10 +201,10 @@ Tools
 <div class="p-4 mx-auto text-gray-800 max-w-screen-2xl md:p-8 lg:p-10">
 
 <div class="flex items-center justify-between mb-4">
-<h1 class="text-xl font-bold">UID Checker</h1>
+<h1 class="text-xl font-bold">Facebook UID Checker</h1>
 </div>
 
-<div wire:id="S2H9TJhun9BWNa5tVoYf" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;S2H9TJhun9BWNa5tVoYf&quot;,&quot;name&quot;:&quot;uid-checker&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;uid-checker&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;0026b346&quot;,&quot;data&quot;:[],&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;fee9102c46034366e613f3977bba375604200fb4cb60825cdffe9069d7825710&quot;}}" class="p-5 bg-white shadow rounded-xl" x-data="uidChecker">
+<div wire:id="S2H9TJhun9BWNa5tVoYf" class="p-5 bg-white shadow rounded-xl" x-data="uidChecker">
 <div>
 <label class="block font-medium text-sm text-gray-700" for="uid">
 Enter UID (Each UID in new line) <span class="text-red-500">*</span>
@@ -163,8 +214,8 @@ Enter UID (Each UID in new line) <span class="text-red-500">*</span>
 <div class="mt-6">
 <button class="inline-flex items-center px-4 py-2 rounded-md font-medium text-sm tracking-wide disabled:opacity-25
 transition ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500 active:bg-teal-800" type="button" @click="check" :disabled="loading">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M7 4v16l13 -8z" />
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M7 4v16l13 -8z"></path>
 </svg> Check
 </button>
 </div>
@@ -180,7 +231,7 @@ transition ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 bg-te
 Copy
 </button>
 </label>
-<textarea id="live" rows="6" x-model="live" readonly onfocus="if (!window.__cfRLUnblockHandlers) return false; this.select()" class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500" data-cf-modified-f1626fb3d77cb3b8ce7c59a6-></textarea>
+<textarea id="live" rows="6" x-model="live" readonly="" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.select()" class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500"></textarea>
 </div>
 <div>
 <label for="dead" class="flex items-center justify-between text-sm font-medium text-danger-600">
@@ -193,7 +244,7 @@ transition ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 bg-te
 Copy
 </button>
 </label>
-<textarea id="dead" rows="6" x-model="dead" readonly onfocus="if (!window.__cfRLUnblockHandlers) return false; this.select()" class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500" data-cf-modified-f1626fb3d77cb3b8ce7c59a6-></textarea>
+<textarea id="dead" rows="6" x-model="dead" readonly="" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.select()" class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500"></textarea>
 </div>
 </div>
 </div>
@@ -204,8 +255,8 @@ Copy
 </div>
 
 
-<script src="/onlinebankgen/js/clipboard.min.js" type="f1626fb3d77cb3b8ce7c59a6-text/javascript"></script>
-<script type="f1626fb3d77cb3b8ce7c59a6-text/javascript">
+<script src="/onlinebankgen/js/clipboard.min.js" type="text/javascript"></script>
+<script type="text/javascript">
         const btns = new ClipboardJS("button[data-clipboard-target]");
         btns.on('success', function(e) {
             e.clearSelection();
@@ -215,9 +266,10 @@ Copy
             }, 1000);
         });
     </script>
-<div wire:id="wnqqH8J97Yz5ccY62HQJ" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;wnqqH8J97Yz5ccY62HQJ&quot;,&quot;name&quot;:&quot;notifications&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;uid-checker&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;notificationSent&quot;,&quot;notificationsSent&quot;,&quot;notificationClosed&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;7b6549b0&quot;,&quot;data&quot;:{&quot;isFilamentNotificationsComponent&quot;:true,&quot;notifications&quot;:[]},&quot;dataMeta&quot;:{&quot;wireables&quot;:[&quot;notifications&quot;]},&quot;checksum&quot;:&quot;cd6d97a53e3f19aa39e6fb20c2e445099a3fb2517529fc6cf6988e5d0e57e5ba&quot;}}">
+<div wire:id="wnqqH8J97Yz5ccY62HQJ">
 <div class="filament-notifications pointer-events-none fixed inset-4 z-50 mx-auto flex gap-3 items-end flex-col-reverse justify-end" role="status">
 </div>
 </div>
-<script src="/onlinebankgen/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="f1626fb3d77cb3b8ce7c59a6-|49" defer></script></body>
-</html>
+
+
+</body></html>

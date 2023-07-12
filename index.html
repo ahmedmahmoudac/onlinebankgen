@@ -67,6 +67,75 @@ trix-toolbar [data-trix-dialog][data-trix-active] {
 
 trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
   background-color: #ffdddd;
+}</style><style type="text/css" data-tag-name="trix-editor">trix-editor {
+  display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+  content: attr(placeholder);
+  color: graytext;
+  cursor: text;
+  pointer-events: none;
+}
+
+trix-editor a[contenteditable=false] {
+  cursor: text;
+}
+
+trix-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+  resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+  position: absolute;
+  left: -9999px;
+  max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+  content: attr(data-trix-placeholder);
+  color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+  display: inline-block !important;
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+  vertical-align: top !important;
+  margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+  vertical-align: bottom !important;
+  margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
 }</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -115,7 +184,7 @@ trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
 <ul class="mt-6 space-y-2">
 
 <li class="px-4 mb-2 text-xs font-semibold tracking-widest text-teal-600 uppercase">
-User
+Medoz Sites
 </li>
 
 
@@ -124,10 +193,10 @@ User
 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
 <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
-</svg> Medoz Tools
+</svg> Medoz Tools &amp; Extentions
 </span>
 </a>
-</li>
+
 <li>
 <a href="https://medoz.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
 <span class="flex items-center">
@@ -135,7 +204,7 @@ User
 <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
 <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
 <path d="M16 11h6m-3 -3v6"></path>
-</svg> Medoz Main Home
+</svg> Medoz Generators
 </span>
 </a>
 </li>
@@ -146,37 +215,34 @@ User
 Tools
 </li>
 
+
 <li>
-<a href="https://medoztools.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
-<span class="flex items-center">
-<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"></path>
-<path d="M9 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-<path d="M15 8l2 0"></path>
-<path d="M15 12l2 0"></path>
-<path d="M7 16l10 0"></path>
-</svg> Medoz Tools
-</span>
-</a>
-</li>
-<li>
-<a href="https://notes.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
+<a href="https://onlinenotes.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
 <span class="flex items-center">
 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
 <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
-</svg> Medoz Notes
+</svg> Online Notes By Medoz
 </span>
 </a>
 </li>
-<a href="https://cookies.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between bg-teal-600 text-white">
+<li>
+<a href="https://upload.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between">
+<span class="flex items-center">
+<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+<path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
+</svg> File Upload By Medoz
+</span>
+</a>
+</li><a href="https://cookies.trendatelyoum.com/" class="flex items-center px-4 py-2 rounded-md hover:bg-teal-600 hover:text-white justify-between bg-teal-600 text-white">
 <span class="flex items-center">
 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
 </svg> Fb UID Checker
 </span>
 </a>
-</li>
+
 </ul>
 </nav>
 </aside>
@@ -279,6 +345,7 @@ Copy
 <div class="filament-notifications pointer-events-none fixed inset-4 z-50 mx-auto flex gap-3 items-end flex-col-reverse justify-end" role="status">
 </div>
 </div>
+
 
 
 </body></html>
